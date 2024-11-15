@@ -13,7 +13,7 @@ function App() {
     } else {
       document.body.classList.remove("dark-mode"); // Eliminar clase dark-mode
     }
-  }, [isDarkMode]); // Ejecutar cada vez que cambie isDarkMode
+  }, [isDarkMode]);
 
   useEffect(() => {
     fetch(
@@ -28,7 +28,7 @@ function App() {
 
   return (
     <>
-      <div className="container text-center">
+      <div className={`container text-center ${isDarkMode ? "dark-mode" : ""}`}>
         {/* Botón para alternar entre modo oscuro y claro */}
         <button onClick={() => setIsDarkMode(!isDarkMode)}>
           {isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
