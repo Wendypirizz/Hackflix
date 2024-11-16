@@ -1,20 +1,21 @@
+// src/App.jsx
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import MovieCard from "./compenents/MovieCard";
-import RatingStars from "./compenents/RatingStars"; // Asegúrate de que la ruta sea correcta
+import GridSelector from "./compenents/GridSelector";
+import RatingStars from "./compenents/RatingStars";
 
 function App() {
   const [movieList, setMovieList] = useState([]);
   const [isDarkMode, setIsDarkMode] = useState(false);
-  const [ratingParam, setRatingParam] = useState(""); // Rating seleccionado (1-5)
-  // Estado para el modo oscuro
+  const [ratingParam, setRatingParam] = useState("");
+  const [columns, setColumns] = useState(3);
 
-  // Cambiar el modo cuando el estado cambia
   useEffect(() => {
     if (isDarkMode) {
-      document.body.classList.add("dark-mode"); // Añadir clase dark-mode al body
+      document.body.classList.add("dark-mode");
     } else {
-      document.body.classList.remove("dark-mode"); // Eliminar clase dark-mode
+      document.body.classList.remove("dark-mode");
     }
   }, [isDarkMode]);
 
@@ -41,19 +42,18 @@ function App() {
 
   return (
     <>
-      <div className={`container text-center ${isDarkMode ? "dark-mode" : ""}`}>
-        {/* Botón para alternar entre modo oscuro y claro */}
-        <button onClick={() => setIsDarkMode(!isDarkMode)}>
-          {isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
-        </button>
+      <button onClick={() => setIsDarkMode(!isDarkMode)}>
+        {isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
+      </button>
+      <GridSelector setColumns={setColumns} />
+      <div>
+        <RatingStars setRatingParam={setRatingParam} />
+      </div>
 
-        <div>
-          <RatingStars setRatingParam={setRatingParam} />
-        </div>
-
+      <div className="container text-center">
         <div className="row">
           {movieList.map((movie) => (
-            <MovieCard key={movie.id} movie={movie} />
+            <MovieCard key={movie.id} movie={movie} columns={columns} />
           ))}
         </div>
       </div>
