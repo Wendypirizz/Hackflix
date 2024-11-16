@@ -1,17 +1,19 @@
+// src/App.jsx
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import MovieCard from "./compenents/MovieCard"; // Asegúrate de que la ruta sea correcta
+import MovieCard from "./compenents/MovieCard";
+import GridSelector from "./compenents/GridSelector";
 
 function App() {
   const [movieList, setMovieList] = useState([]);
-  const [isDarkMode, setIsDarkMode] = useState(false); // Estado para el modo oscuro
+  const [columns, setColumns] = useState(3);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
-  // Cambiar el modo cuando el estado cambia
   useEffect(() => {
     if (isDarkMode) {
-      document.body.classList.add("dark-mode"); // Añadir clase dark-mode al body
+      document.body.classList.add("dark-mode");
     } else {
-      document.body.classList.remove("dark-mode"); // Eliminar clase dark-mode
+      document.body.classList.remove("dark-mode");
     }
   }, [isDarkMode]);
 
@@ -21,22 +23,21 @@ function App() {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.results);
         setMovieList(data.results);
       });
   }, []);
 
   return (
     <>
-      <div className={`container text-center ${isDarkMode ? "dark-mode" : ""}`}>
-        {/* Botón para alternar entre modo oscuro y claro */}
-        <button onClick={() => setIsDarkMode(!isDarkMode)}>
-          {isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
-        </button>
+      <button onClick={() => setIsDarkMode(!isDarkMode)}>
+        {isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
+      </button>
 
+      <GridSelector setColumns={setColumns} />
+      <div className="container text-center">
         <div className="row">
           {movieList.map((movie) => (
-            <MovieCard key={movie.id} movie={movie} />
+            <MovieCard key={movie.id} movie={movie} columns={columns} />
           ))}
         </div>
       </div>

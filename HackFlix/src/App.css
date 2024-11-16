@@ -4,11 +4,11 @@
   padding: 2rem;
   text-align: center;
 }
-/* Estilos para el modo claro (por defecto) */
+
 body {
   background-color: white;
   color: black;
-  transition: background-color 0.3s, color 0.3s; /* Transición suave */
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .container {
@@ -16,7 +16,6 @@ body {
   transition: background-color 0.3s;
 }
 
-/* Estilos para el modo oscuro */
 body.dark-mode {
   background-color: #121212;
   color: white;
@@ -26,7 +25,6 @@ body.dark-mode {
   background-color: #2a2a2a;
 }
 
-/* Estilos del botón */
 button {
   margin: 20px;
   padding: 10px 20px;
@@ -39,8 +37,6 @@ button {
 button:hover {
   opacity: 0.8;
 }
-
-
 
 .logo {
   height: 6em;
