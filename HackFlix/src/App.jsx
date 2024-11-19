@@ -22,7 +22,7 @@ function App() {
   useEffect(() => {
     const fetchMovies = async () => {
       let url =
-        "https://api.themoviedb.org/3/discover/movie?api_key=283c1e7a51383f13a7c29b61a9d041f4&include_adult=false&page=1&sort_by=popularity.desc&vote_count.gte=40"; // URL por defecto para todas las películas
+        "https://api.themoviedb.org/3/discover/movie?api_key=283c1e7a51383f13a7c29b61a9d041f4&include_adult=false&page=1&sort_by=popularity.desc&vote_count.gte=40";
 
       if (ratingParam !== null) {
         url = `https://api.themoviedb.org/3/discover/movie?api_key=283c1e7a51383f13a7c29b61a9d041f4&include_adult=false&page=1&sort_by=popularity.desc&vote_count.gte=40${ratingParam}`;
@@ -45,13 +45,18 @@ function App() {
       <button onClick={() => setIsDarkMode(!isDarkMode)}>
         {isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
       </button>
-      <GridSelector setColumns={setColumns} />
+      <div className="d-flex justify-content-center">
+        <div className="text-center w-25 align-center">
+          <GridSelector setColumns={setColumns} />
+        </div>
+      </div>
+
       <div>
         <RatingStars setRatingParam={setRatingParam} />
       </div>
 
-      <div className="container text-center">
-        <div className="row">
+      <div className="container text-center bg-transparent">
+        <div className="row bg-transparent">
           {movieList.map((movie) => (
             <MovieCard key={movie.id} movie={movie} columns={columns} />
           ))}

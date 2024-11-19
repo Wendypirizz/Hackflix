@@ -4,7 +4,6 @@ import { Rating } from "react-simple-star-rating";
 const RatingStars = ({ setRatingParam }) => {
   const [rating, setRating] = useState(0);
 
-  // Catch Rating value
   const handleRating = (rating) => {
     setRating(rating);
     console.log(rating);
@@ -16,22 +15,9 @@ const RatingStars = ({ setRatingParam }) => {
     if (rating === 1) setRatingParam("&vote_average.lte=3");
   };
 
-  // other logic
-
-  // Optinal callback functions
-  const onPointerEnter = () => console.log("Enter");
-  const onPointerLeave = () => console.log("Leave");
-  const onPointerMove = (value, index) => console.log(value, index);
-
   return (
     <div className="App">
-      <Rating
-        onClick={handleRating}
-        onPointerEnter={onPointerEnter}
-        onPointerLeave={onPointerLeave}
-        onPointerMove={onPointerMove}
-        /* Available Props */
-      />
+      <Rating onClick={handleRating} />
     </div>
   );
 };
