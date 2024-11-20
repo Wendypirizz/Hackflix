@@ -4,6 +4,8 @@ import "./App.css";
 import MovieCard from "./compenents/MovieCard";
 import GridSelector from "./compenents/GridSelector";
 import RatingStars from "./compenents/RatingStars";
+import NavBar from "./compenents/NavBar";
+import Slider from "./compenents/Slider";
 
 function App() {
   const [movieList, setMovieList] = useState([]);
@@ -40,8 +42,26 @@ function App() {
     fetchMovies();
   }, [ratingParam]);
 
+  let highRatedMovies = [];
+  for (const movie of movieList) {
+    if (movie.vote_average > 6) {
+      highRatedMovies.push(movie);
+    }
+  }
+
+  const topFiveMovies = []; // Arreglo para las primeras 5 películas
+
+  for (let i = 0; i < highRatedMovies.length && i < 5; i++) {
+    topFiveMovies.push(highRatedMovies[i]);
+  }
+  console.log(topFiveMovies);
+
   return (
     <>
+      <NavBar />
+
+      <Slider movies={topFiveMovies} />
+
       <button onClick={() => setIsDarkMode(!isDarkMode)}>
         {isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
       </button>
