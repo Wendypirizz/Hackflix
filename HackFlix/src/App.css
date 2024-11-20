@@ -6,23 +6,23 @@
 }
 
 body {
-  background-color: white;
-  color: black;
+  background-color: rgb(9, 8, 19);
+  color: rgb(255, 255, 255);
   transition: background-color 0.3s, color 0.3s;
 }
 
 .container {
-  background-color: white;
+  background-color: transparent;
   transition: background-color 0.3s;
 }
 
-body.dark-mode {
-  background-color: #121212;
+body.light-mode {
+  background-color: #b1b0b0;
   color: white;
 }
 
-.container.dark-mode {
-  background-color: #121212;
+.container.lighr-mode {
+  background-color: #b1b0b0;
 }
 
 button {

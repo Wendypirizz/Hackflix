@@ -9,15 +9,15 @@ import Slider from "./compenents/Slider";
 
 function App() {
   const [movieList, setMovieList] = useState([]);
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(true);
   const [ratingParam, setRatingParam] = useState("");
   const [columns, setColumns] = useState(3);
 
   useEffect(() => {
-    if (isDarkMode) {
-      document.body.classList.add("dark-mode");
+    if (!isDarkMode) {
+      document.body.classList.add("light-mode");
     } else {
-      document.body.classList.remove("dark-mode");
+      document.body.classList.remove("light-mode");
     }
   }, [isDarkMode]);
 
