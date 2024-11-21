@@ -6,12 +6,12 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import { SlSettings } from "react-icons/sl";
 
 const NavBar = () => {
-  const [isDarkMode, setIsDarkMode] = useState(true);
+  const [isDarkMode, setIsDarkMode] = useState(false);
   useEffect(() => {
     if (!isDarkMode) {
-      document.body.classList.add("light-mode");
+      document.body.classList.add("dark-mode");
     } else {
-      document.body.classList.remove("light-mode");
+      document.body.classList.remove("dark-mode");
     }
   }, [isDarkMode]);
   return (

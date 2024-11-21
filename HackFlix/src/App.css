@@ -16,13 +16,13 @@ body {
   transition: background-color 0.3s;
 }
 
-body.light-mode {
-  background-color: #b1b0b0;
+body.dark-mode {
+  background-color: #181818;
   color: white;
 }
 
-.container.lighr-mode {
-  background-color: #b1b0b0;
+.container.dark-mode {
+  background-color: #181818;
 }
 
 button {

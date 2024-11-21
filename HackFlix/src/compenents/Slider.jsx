@@ -5,7 +5,7 @@ const Slider = ({ movies }) => {
   console.log(movies);
 
   return (
-    <div className="slider-container container">
+    <div className="slider-container container mb-2">
       <div className="slide">
         {movies.map((movie, index) => (
           <img
