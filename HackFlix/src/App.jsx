@@ -9,38 +9,50 @@ import Slider from "./compenents/Slider";
 
 function App() {
   const [movieList, setMovieList] = useState([]);
-  const [isDarkMode, setIsDarkMode] = useState(true);
   const [ratingParam, setRatingParam] = useState("");
   const [columns, setColumns] = useState(3);
-
-  useEffect(() => {
-    if (!isDarkMode) {
-      document.body.classList.add("light-mode");
-    } else {
-      document.body.classList.remove("light-mode");
-    }
-  }, [isDarkMode]);
+  const [page, setPage] = useState(1);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchMovies = async () => {
       let url =
-        "https://api.themoviedb.org/3/discover/movie?api_key=283c1e7a51383f13a7c29b61a9d041f4&include_adult=false&page=1&sort_by=popularity.desc&vote_count.gte=40";
+        "https://api.themoviedb.org/3/discover/movie?api_key=283c1e7a51383f13a7c29b61a9d041f4&include_adult=false&sort_by=popularity.desc&vote_count.gte=40&page=" +
+        page;
 
       if (ratingParam !== null) {
-        url = `https://api.themoviedb.org/3/discover/movie?api_key=283c1e7a51383f13a7c29b61a9d041f4&include_adult=false&page=1&sort_by=popularity.desc&vote_count.gte=40${ratingParam}`;
+        url += ratingParam;
       }
 
+      setLoading(true);
       try {
         const response = await fetch(url);
         const data = await response.json();
-        setMovieList(data.results);
+        setMovieList((prevMovies) => [...prevMovies, ...data.results]); // Agrega las nuevas películas al estado
       } catch (error) {
         console.error("Error fetching movies:", error);
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchMovies();
-  }, [ratingParam]);
+  }, [ratingParam, page]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (
+        window.innerHeight + document.documentElement.scrollTop >=
+          document.documentElement.offsetHeight - 100 &&
+        !loading
+      ) {
+        setPage((prevPage) => prevPage + 1); // Incrementa la página cuando se alcanza el final
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll); // Limpia el event listener
+  }, [loading]);
 
   let highRatedMovies = [];
   for (const movie of movieList) {
@@ -58,21 +70,18 @@ function App() {
 
   return (
     <>
-      <NavBar />
-
+      <div className="fixed-top container">
+        <NavBar />
+      </div>
       <Slider movies={topFiveMovies} />
+      <div className="d-flex container flex-row justify-content-between">
+        <div>
+          <RatingStars setRatingParam={setRatingParam} />
+        </div>
 
-      <button onClick={() => setIsDarkMode(!isDarkMode)}>
-        {isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
-      </button>
-      <div className="d-flex justify-content-center">
         <div className="text-center w-25 align-center">
           <GridSelector setColumns={setColumns} />
         </div>
-      </div>
-
-      <div>
-        <RatingStars setRatingParam={setRatingParam} />
       </div>
 
       <div className="container text-center bg-transparent">
@@ -80,6 +89,7 @@ function App() {
           {movieList.map((movie) => (
             <MovieCard key={movie.id} movie={movie} columns={columns} />
           ))}
+          {loading && <div>Loading...</div>}
         </div>
       </div>
     </>
