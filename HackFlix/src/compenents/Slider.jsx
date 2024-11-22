@@ -6,6 +6,7 @@ const Slider = ({ movies }) => {
 
   return (
     <div className="slider-container container mb-2">
+      <h1 className="title">Choose between +1000 movies</h1>
       <div className="slide">
         {movies.map((movie, index) => (
           <img

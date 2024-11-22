@@ -12,6 +12,13 @@
   position: relative;
 }
 
+.title {
+  z-index: 1;
+  position: absolute;
+  bottom: 70px;
+  left: 10px;
+}
+
 .slide {
   display: flex;
   width: 200%;
