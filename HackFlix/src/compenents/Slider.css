@@ -14,10 +14,8 @@
 
 .slide {
   display: flex;
-
   width: 200%;
-
-  animation: slide 90s infinite;
+  animation: slide 95s infinite;
 }
 
 .slide img {
