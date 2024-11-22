@@ -1,3 +1,15 @@
+.navbar-brand {
+  position: fixed;
+  top: 0%;
+  color: #e2e2e2;
+}
+.navbar-all {
+  position: fixed;
+  top: 0%;
+  left: 1010px;
+  color: bisque;
+}
+
 .nav-link:hover {
   color: #dfe217 !important;
 }
@@ -17,12 +29,4 @@
 
 .dropdown-item {
   font-size: 1rem;
-}
-
-body {
-  padding-top: 40px;
-}
-
-body.light-mode .navbar {
-  background-color: rgba(255, 255, 255, 0.7);
 }
