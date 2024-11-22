@@ -42,7 +42,7 @@
 }
 
 .movie-title {
-  font-size: 1.8rem;
+  font-size: 100%;
   font-weight: bold;
   text-align: center;
   padding-bottom: 10px;
@@ -52,7 +52,7 @@
 }
 
 .movie-overview {
-  font-size: 1rem;
+  font-size: 100%;
   color: #f0f0f0;
   text-align: center;
   flex-grow: 1;

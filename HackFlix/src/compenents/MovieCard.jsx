@@ -9,8 +9,8 @@ const MovieCard = ({ movie, columns }) => {
 
   // Truncar la descripción del texto si es demasiado largo
   const truncatedOverview =
-    movie.overview && movie.overview.length > 100
-      ? movie.overview.slice(0, 100) + "..."
+    movie.overview && movie.overview.length > 220
+      ? movie.overview.slice(0, 220) + "..."
       : movie.overview || "No description available";
 
   return (
@@ -18,7 +18,7 @@ const MovieCard = ({ movie, columns }) => {
       <div className="movie-poster">
         <img className="img-fluid" src={posterSrc} alt={movie.title} />
         <div className="movie-info">
-          <h3 className="movie-title">{movie.title}</h3>
+          <h2 className="movie-title">{movie.title}</h2>
           <p className="movie-overview">{truncatedOverview}</p>
           <div className="d-flex align-items-center justify-content-center">
             <GrStarOutline /> <span> {Math.round(movie.vote_average)} </span>
