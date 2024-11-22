@@ -1,1 +1,28 @@
+.nav-link:hover {
+  color: #dfe217 !important;
+}
 
+.navbar-toggler-icon {
+  background-color: rgb(226, 223, 16);
+}
+
+.nav-item.dropdown .dropdown-menu {
+  background-color: rgba(245, 238, 238, 0.8);
+  border: none;
+}
+
+.nav-item.dropdown .dropdown-item:hover {
+  background-color: #e2e2e2;
+}
+
+.dropdown-item {
+  font-size: 1rem;
+}
+
+body {
+  padding-top: 40px;
+}
+
+body.light-mode .navbar {
+  background-color: rgba(255, 255, 255, 0.7);
+}
