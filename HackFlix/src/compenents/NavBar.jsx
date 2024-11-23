@@ -4,6 +4,7 @@ import "./NavBar.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import { SlSettings } from "react-icons/sl";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -36,9 +37,11 @@ const NavBar = () => {
             <div className="collapse navbar-collapse" id="navbarNavDropdown">
               <ul className="navbar-nav">
                 <li className="nav-item text-light">
-                  <a className="nav-link active" aria-current="page" href="#">
-                    Home
-                  </a>
+                  <Link to={"/"}> 
+                    <a className="nav-link active" aria-current="page" href="#">
+                      Home
+                    </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link" href="#">

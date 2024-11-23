@@ -1,9 +1,9 @@
 import React from "react";
-import { useParams } from "react-router-dom"; // Para leer el parámetro de la URL
+import { useParams } from "react-router-dom"; 
 
 function MovieDetail({ movieList }) {
-  const { id } = useParams(); // Extraemos el ID de la URL
-  const movie = movieList.find((movie) => movie.id === parseInt(id)); // Buscamos la película correspondiente
+  const { id } = useParams(); 
+  const movie = movieList.find((movie) => movie.id === parseInt(id)); 
 
   if (!movie) {
     return <div>Pelicula no encontrada.</div>;
