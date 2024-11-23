@@ -1,5 +1,5 @@
-// src/App.jsx
 import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; // Importa Router y Routes
 import "./App.css";
 import MovieCard from "./compenents/MovieCard";
 import GridSelector from "./compenents/GridSelector";
@@ -8,6 +8,7 @@ import NavBar from "./compenents/NavBar";
 import Slider from "./compenents/Slider";
 import BeatLoader from "react-spinners/BeatLoader";
 import InfiniteScroll from "react-infinite-scroll-component";
+import MovieDetail from "./Pages/MovieDetail/"; // Importa el componente de detalle de la película
 
 function App() {
   const [movieList, setMovieList] = useState([]);
@@ -26,7 +27,6 @@ function App() {
 
     try {
       setLoading(true);
-      console.log(url);
       const response = await fetch(url);
       const data = await response.json();
       if (data.results.length === 0) {
@@ -42,7 +42,6 @@ function App() {
   };
 
   useEffect(() => {
-    // Reset movies when ratingParam changes
     setMovieList([]);
     setPage(1);
     setHasMore(true);
@@ -56,16 +55,18 @@ function App() {
   };
 
   return (
-    <>
+    <Router>
+      {" "}
+      {/* Añadimos el Router */}
       <div className="fixed-top container pt-5">
         <NavBar />
       </div>
       <Slider movies={movieList} />
-      <div className="d-flex container flex-row  align-items-center justify-content-between">
+      <div className="d-flex container flex-row align-items-center justify-content-between">
         <div>
           <RatingStars setRatingParam={setRatingParam} />
         </div>
-        <div className>
+        <div>
           <GridSelector setColumns={setColumns} />
         </div>
       </div>
@@ -90,7 +91,14 @@ function App() {
           </div>
         </div>
       </InfiniteScroll>
-    </>
+      {/* Rutas para mostrar el detalle de la película */}
+      <Routes>
+        <Route
+          path="/movie/:id"
+          element={<MovieDetail movieList={movieList} />}
+        />
+      </Routes>
+    </Router>
   );
 }
 
