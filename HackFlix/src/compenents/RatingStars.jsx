@@ -6,7 +6,6 @@ const RatingStars = ({ setRatingParam }) => {
 
   const handleRating = (rating) => {
     setRating(rating);
-    console.log(rating);
 
     if (rating === 5) setRatingParam("&vote_average.gte=9");
     if (rating === 4) setRatingParam("&vote_average.gte=7&vote_average.lte=9");

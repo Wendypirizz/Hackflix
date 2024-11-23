@@ -6,24 +6,24 @@ const GridSelector = ({ setColumns }) => {
   };
 
   return (
-    <div class="btn-group" role="group" aria-label="Basic example">
+    <div className="btn-group" role="group" aria-label="Basic example">
       <button
         type="button"
-        class="btn btn-secondary"
+        className="btn btn-secondary"
         onClick={() => handleSelect(4)}
       >
         3
       </button>
       <button
         type="button"
-        class="btn btn-secondary"
+        className="btn btn-secondary"
         onClick={() => handleSelect(3)}
       >
         4
       </button>
       <button
         type="button"
-        class="btn btn-secondary"
+        className="btn btn-secondary"
         onClick={() => handleSelect(2)}
       >
         6
