@@ -1,13 +1,16 @@
 .navbar-brand {
-  position: fixed;
-  top: 0%;
-  color: #e2e2e2;
+  font-family: "Bungee", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
-.navbar-all {
-  position: fixed;
-  top: 0%;
-  left: 1010px;
-  color: bisque;
+
+.no-underline {
+  text-decoration: none;
+}
+
+.nav-bar-fixed {
+  color: #dfe217;
+  background-color: #dfe217;
 }
 
 .nav-link:hover {

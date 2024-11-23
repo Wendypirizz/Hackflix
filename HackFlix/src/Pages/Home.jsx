@@ -11,18 +11,13 @@ const Home = ({
   hasMore,
   movieList,
   loading,
-  setPage,
   setRatingParam,
-  page,
-  setLoading,
-  fetchMoreData
+  fetchMoreData,
 }) => {
-  
-
   return (
     <>
       <Slider movies={movieList} />
-      <div className="d-flex container flex-row align-items-center justify-content-between">
+      <div className="d-flex container flex-row align-items-center justify-content-between mt-5">
         <div>
           <RatingStars setRatingParam={setRatingParam} />
         </div>
@@ -55,4 +50,4 @@ const Home = ({
   );
 };
 
-export default Home
+export default Home;

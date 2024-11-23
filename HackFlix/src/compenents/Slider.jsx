@@ -3,8 +3,8 @@ import "./Slider.css";
 
 const Slider = ({ movies }) => {
   return (
-    <div className="slider-container container mb-2">
-      <h1 className="title">CHOOSE BETWEEN +1000 MOVIES</h1>
+    <div className="slider-container mt-5 mb-2">
+      <h1 className="title">Choose between +1000 Movies!</h1>
       <div className="slide">
         {movies.map((movie, index) => (
           <img
