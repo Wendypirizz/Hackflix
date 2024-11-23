@@ -2,11 +2,9 @@ import React from "react";
 import "./Slider.css";
 
 const Slider = ({ movies }) => {
-  console.log(movies);
-
   return (
     <div className="slider-container container mb-2">
-      <h1 className="title">Choose between +1000 movies</h1>
+      <h1 className="title">CHOOSE BETWEEN +1000 MOVIES</h1>
       <div className="slide">
         {movies.map((movie, index) => (
           <img

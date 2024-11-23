@@ -76,7 +76,7 @@ function App() {
         hasMore={hasMore}
         loader={
           <div className="spinner mt-4">
-            <BeatLoader setLoading={loading} />
+            <BeatLoader color={"#9d9d9d"} setLoading={loading} />
           </div>
         }
         endMessage={
