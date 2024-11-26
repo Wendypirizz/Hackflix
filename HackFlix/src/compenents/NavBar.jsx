@@ -19,9 +19,11 @@ const NavBar = () => {
     <>
       <nav className="navbar navbar-expand-lg  nav-bar-fixed">
         <div className="container">
-          <a className="navbar-brand fw-bolder" href="#">
-            HACKFLIX
-          </a>
+          <Link to={"/"} className="no-underline">
+            <a className="navbar-brand fw-bolder" href="#">
+              HACKFLIX
+            </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -33,7 +35,10 @@ const NavBar = () => {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse" id="navbarNavDropdown">
+          <div
+            className="collapse navbar-collapse d-flex justify-content-between"
+            id="navbarNavDropdown"
+          >
             <ul className="navbar-nav">
               <Link to={"/"} className="no-underline">
                 <li className="nav-item">
@@ -42,11 +47,13 @@ const NavBar = () => {
                   </a>
                 </li>
               </Link>
-              <li className="nav-item">
-                <a className="nav-link" href="#">
-                  Movies
-                </a>
-              </li>
+              <Link to={"/movies"} className="no-underline">
+                <li className="nav-item">
+                  <a className="nav-link" href="#">
+                    Movies
+                  </a>
+                </li>
+              </Link>
               <li className="nav-item">
                 <a className="nav-link" href="#">
                   Recomendations
@@ -88,6 +95,17 @@ const NavBar = () => {
                 </ul>
               </li>
             </ul>
+            {/*<form className="d-flex" role="search">
+              <input
+                className="form-control me-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button className="btn btn-outline-success" type="submit">
+                Search
+              </button>
+            </form>*/}
           </div>
         </div>
       </nav>
