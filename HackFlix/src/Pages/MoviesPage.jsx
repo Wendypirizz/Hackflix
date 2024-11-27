@@ -5,6 +5,7 @@ import MovieCard from "../compenents/MovieCard";
 import GridSelector from "../compenents/GridSelector";
 import RatingStars from "../compenents/RatingStars";
 import GenreFilter from "../compenents/GenreFilter";
+import SearchBar from "../compenents/SearchBar";
 
 const MoviesPage = ({
   setColumns,
@@ -15,6 +16,7 @@ const MoviesPage = ({
   setRatingParam,
   fetchMoreData,
   setGenreParam,
+  setSearchParam,
 }) => {
   return (
     <>
@@ -24,17 +26,7 @@ const MoviesPage = ({
             <RatingStars setRatingParam={setRatingParam} />
           </div>
           <div className="ms-3">
-            <form className="d-flex" role="search">
-              <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button className="btn btn-outline-success" type="submit">
-                Search
-              </button>
-            </form>
+            <SearchBar setSearchParam={setSearchParam} />
           </div>
         </div>
         <div className="d-flex align-items-center">

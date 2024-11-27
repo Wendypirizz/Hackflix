@@ -54,11 +54,13 @@ const NavBar = () => {
                   </a>
                 </li>
               </Link>
-              <li className="nav-item">
-                <a className="nav-link" href="#">
-                  Recomendations
-                </a>
-              </li>
+              <Link to={"/recomendations"} className="no-underline">
+                <li className="nav-item">
+                  <a className="nav-link" href="#">
+                    Recomendations
+                  </a>
+                </li>
+              </Link>
               <li className="nav-item dropdown">
                 <a
                   className="nav-link dropdown-toggle"

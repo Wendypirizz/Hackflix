@@ -5,16 +5,18 @@ import NavBar from "./compenents/NavBar";
 import Home from "./Pages/Home";
 import MovieDetail from "./Pages/MovieDetail/";
 import MoviesPage from "./Pages/MoviesPage";
+import Recomendations from "./Pages/Recomendations";
 
 function App() {
   const [movieList, setMovieList] = useState([]);
   const [ratingParam, setRatingParam] = useState("");
   const [genreParam, setGenreParam] = useState("");
-
+  const [searchParam, setSearchParam] = useState("");
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
   const [loading, setLoading] = useState(false);
   const [columns, setColumns] = useState(2);
+
   const fetchMovies = async (currentPage) => {
     let url = `https://api.themoviedb.org/3/discover/movie?api_key=283c1e7a51383f13a7c29b61a9d041f4&include_adult=false&page=${currentPage}&sort_by=popularity.desc&vote_count.gte=40`;
 
@@ -24,6 +26,10 @@ function App() {
 
     if (genreParam) {
       url += genreParam;
+    }
+
+    if (searchParam) {
+      url += searchParam;
     }
 
     try {
@@ -47,7 +53,7 @@ function App() {
     setPage(1);
     setHasMore(true);
     fetchMovies(1);
-  }, [ratingParam, genreParam]);
+  }, [ratingParam, genreParam, searchParam]);
 
   const fetchMoreData = () => {
     if (hasMore && !loading) {
@@ -87,6 +93,7 @@ function App() {
           path="/movies"
           element={
             <MoviesPage
+              setSearchParam={setSearchParam}
               setGenreParam={setGenreParam}
               hasMore={hasMore}
               setPage={setPage}
@@ -99,6 +106,7 @@ function App() {
             />
           }
         />
+        <Route path="/recomendations" element={<Recomendations />} />
       </Routes>
     </Router>
   );
