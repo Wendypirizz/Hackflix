@@ -1,1 +1,10 @@
+.navbar-brand {
+  position: fixed;
+  top: 0;
+}
 
+.navbar-all {
+  position: fixed;
+  top: 0;
+  left: 200px;
+}
