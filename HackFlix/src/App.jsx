@@ -20,16 +20,20 @@ function App() {
   const fetchMovies = async (currentPage) => {
     let url = `https://api.themoviedb.org/3/discover/movie?api_key=283c1e7a51383f13a7c29b61a9d041f4&include_adult=false&page=${currentPage}&sort_by=popularity.desc&vote_count.gte=40`;
 
+    if (searchParam !== "") {
+      url =
+        `https://api.themoviedb.org/3/search/movie?api_key=283c1e7a51383f13a7c29b61a9d041f4&include_adult=false&page=${currentPage}&sort_by=popularity.desc&vote_count.gte=40` +
+        searchParam;
+    } else {
+      url = `https://api.themoviedb.org/3/discover/movie?api_key=283c1e7a51383f13a7c29b61a9d041f4&include_adult=false&page=${currentPage}&sort_by=popularity.desc&vote_count.gte=40`;
+    }
+
     if (ratingParam) {
       url += ratingParam;
     }
 
     if (genreParam) {
       url += genreParam;
-    }
-
-    if (searchParam) {
-      url += searchParam;
     }
 
     try {
@@ -49,6 +53,9 @@ function App() {
   };
 
   useEffect(() => {
+    if (ratingParam || genreParam) {
+      setSearchParam("");
+    }
     setMovieList([]);
     setPage(1);
     setHasMore(true);

@@ -26,7 +26,11 @@ const MoviesPage = ({
             <RatingStars setRatingParam={setRatingParam} />
           </div>
           <div className="ms-3">
-            <SearchBar setSearchParam={setSearchParam} />
+            <SearchBar
+              setSearchParam={setSearchParam}
+              setGenreParam={setGenreParam}
+              setRatingParam={setRatingParam}
+            />
           </div>
         </div>
         <div className="d-flex align-items-center">
