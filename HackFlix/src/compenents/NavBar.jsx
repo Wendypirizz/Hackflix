@@ -19,7 +19,7 @@ const NavBar = () => {
     <>
       <nav className="navbar navbar-expand-lg  nav-bar-fixed">
         <div className="container">
-          <Link to={"/"} className="no-underline">
+          <Link to={"/"} className="no-underline navbar-brand fw-bolder">
             <a className="navbar-brand fw-bolder" href="#">
               HACKFLIX
             </a>

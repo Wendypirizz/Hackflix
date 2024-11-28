@@ -2,7 +2,7 @@ import React from "react";
 
 const ReviewCard = ({ review }) => {
   return (
-    <div className="row align-items-center p-3 bg-black m-3 rounded ">
+    <div className="row p-3 bg-black mb-5 rounded container">
       <div className="col-3">
         <img
           className="img-fluid rounded"
@@ -14,6 +14,7 @@ const ReviewCard = ({ review }) => {
         <div className="position-absolute top-0 start-0 object-fit-cover">
           <div className="">
             <h2 className="">{review.tema}</h2>
+            <h4>Autor: {review.autor}</h4>
           </div>
           <div>
             <p>{review.contenido}</p>

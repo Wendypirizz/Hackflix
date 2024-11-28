@@ -6,6 +6,8 @@ import Home from "./Pages/Home";
 import MovieDetail from "./Pages/MovieDetail/";
 import MoviesPage from "./Pages/MoviesPage";
 import Recomendations from "./Pages/Recomendations";
+import NotFoundPage from "./Pages/NotFoundPage";
+import ScrollToTop from "./compenents/SrollToTop";
 
 function App() {
   const [movieList, setMovieList] = useState([]);
@@ -72,7 +74,7 @@ function App() {
 
   return (
     <Router>
-      {" "}
+      <ScrollToTop />
       <div className="fixed-top">
         <NavBar />
       </div>
@@ -114,6 +116,7 @@ function App() {
           }
         />
         <Route path="/recomendations" element={<Recomendations />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Router>
   );

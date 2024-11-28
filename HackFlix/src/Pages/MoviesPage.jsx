@@ -20,7 +20,7 @@ const MoviesPage = ({
 }) => {
   return (
     <>
-      <div className="d-flex container flex-row align-items-center justify-content-between mt-5">
+      <div className="d-flex container flex-row align-items-center justify-content-between mt-5 mb-2">
         <div className="d-flex align-items-center">
           <div>
             <RatingStars setRatingParam={setRatingParam} />
