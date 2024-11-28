@@ -60,7 +60,7 @@ function App() {
     setPage(1);
     setHasMore(true);
     fetchMovies(1);
-  }, [ratingParam, genreParam]);
+  }, [ratingParam, genreParam, searchParam]);
 
   const fetchMoreData = () => {
     if (hasMore && !loading) {

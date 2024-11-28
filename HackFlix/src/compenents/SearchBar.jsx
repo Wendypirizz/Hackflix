@@ -1,15 +1,17 @@
 import { useState } from "react";
 
-const SearchBar = ({ setSearchParam }) => {
+const SearchBar = ({ setSearchParam, setRatingParam, setGenreParam }) => {
   const [search, setSearch] = useState("");
 
   const handleSearch = (e) => {
-    e.preventDefault(); // Prevenir recarga de página
+    e.preventDefault();
+    setGenreParam("");
+    setRatingParam("");
 
     console.log(search);
 
     if (search.trim() === "") {
-      setSearchParam(""); // Limpia el parámetro si no hay texto
+      setSearchParam("");
     } else {
       setSearchParam(`&query=${encodeURIComponent(search.trim())}`); // Actualiza el parámetro de búsqueda
     }
