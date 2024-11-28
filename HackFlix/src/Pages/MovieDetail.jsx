@@ -14,7 +14,6 @@ function MovieDetail({ movieList }) {
     : "path_to_default_image.jpg";
 
   return (
-    
     <div
       style={{
         display: "flex",
@@ -32,21 +31,26 @@ function MovieDetail({ movieList }) {
             "linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(34, 34, 34, 0.7))",
           borderRadius: "15px",
           color: "#fff",
+          paddingtop: "100px",
         }}
       >
         <div className="row align-items-center">
-          
           <div className="col-md-3 d-flex justify-content-center">
             <img
               src={posterSrc}
               alt={movie.title}
               className="img-fluid rounded shadow"
-              style={{ maxWidth: "100%", height: "auto", maxHeight: "300px" }}
+              style={{
+                maxWidth: "100%",
+                height: "auto",
+                maxHeight: "700px",
+                padding: " 10px",
+              }}
             />
           </div>
-         
-          <div className="col-md-9">
-            <div className="text-center mb-4">
+
+          <div className="col-md-9 d-flex flex-column align-items-start">
+            <div className="mb-4">
               <h1 className="fw-bold">{movie.title}</h1>
             </div>
             <p>
